@@ -22,14 +22,12 @@ for (let key in info) {
 }
 
 //Exercicio 5
-  
   let info2 = {
     personagem: 'Tio Patinhas',
     origem: 'Christmas on Bear Mountain, Dell’s Four Color Comics #178',
     nota: 'O último MacPatinhas',
     recorrente: 'Sim',
   }
-
   for (let propriedades in info) {
       if (info[propriedades] === info.recorrente &&
         info[propriedades] === 'Sim' &&
