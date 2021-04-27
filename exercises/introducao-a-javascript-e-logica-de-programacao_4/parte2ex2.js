@@ -1,4 +1,4 @@
-function indexMaior(array) {
+function indexMenor(array) {
     let maior = array[0];
     let pos = 0;
     for (let index in array) {
@@ -11,4 +11,4 @@ function indexMaior(array) {
 }
 
 let arrayTest = [2, 3, 6, 7, 10, 1];
-console.log(indexMaior(arrayTest));
+console.log(indexMenor(arrayTest));
