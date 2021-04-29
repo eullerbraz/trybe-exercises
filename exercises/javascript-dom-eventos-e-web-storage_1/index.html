@@ -52,6 +52,30 @@
  Crie uma função que exiba o conteúdo de todas as tags <p> no console.
         */
         
+        //Exercicio1
+        function  changeText() {
+            let description = document.getElementsByTagName('p')[1];
+            description.innerHTML = "Dev Júnior em uma empresa top";
+        }
+        changeText();
+
+        //Exercicio2
+        function changeColorToGreen () {
+            let squareColor = document.getElementsByClassName('main-content')[0];
+            squareColor.style.backgroundColor = 'rgb(76,164,109)';
+        }
+        changeColorToGreen();
+
+         //Exercicio3
+         function changeColorToWhite () {
+            let squareColor = document.getElementsByClassName('center-content')[0];
+            squareColor.style.backgroundColor = 'white';
+        }
+        changeColorToWhite();
+
+        //
+
+
     </script>
   </body>
 </html>
