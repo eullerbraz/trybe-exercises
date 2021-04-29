@@ -73,7 +73,28 @@
         }
         changeColorToWhite();
 
-        //
+        //Exercicio4
+        function textCorrector() {
+            let text = document.getElementsByClassName('title')[0];
+            text.innerHTML = "Exercício 5.1 - JavaScript"
+        }
+        textCorrector();
+
+        //Exercicio5
+        function toUpperCase() {
+            let upper = document.getElementsByTagName('p')[0];
+            upper.innerHTML = upper.innerHTML.toUpperCase();
+        }
+        toUpperCase();
+
+        //Exercicio6
+        function cosoleTagP() {
+            let pContent = document.getElementsByTagName('p');
+            for (let index in pContent) {
+                console.log(pContent[index].innerHTML);
+            }
+        }
+        cosoleTagP();
 
 
     </script>
