@@ -96,6 +96,14 @@
       leftContent.appendChild(image);
 
       //Exercicio 8
+      let list = document.createElement('ul');
+      let arrayNumbers = ['Um', 'Dois', 'Três', 'Quatro', 'Cinco', 'Seis', 'Sete', 'Oito', 'Nove' , 'Dez'];
+      for (let number of arrayNumbers) {
+          let listItem = document.createElement('li');
+          listItem.innerHTML = number;
+          list.appendChild(listItem);
+      }
+      rightContent.appendChild(list);
       
     </script>
   </body>
