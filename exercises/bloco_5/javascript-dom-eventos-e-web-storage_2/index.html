@@ -65,11 +65,19 @@
       document.body.appendChild(title);
 
       //Exercicio 2
-      let div = document.createElement('div');
-      div.className = 'main-content';
-      document.body.appendChild(div);
+      let mainContent = document.createElement('div');
+      mainContent.className = 'main-content';
+      document.body.appendChild(mainContent);
 
       //Exercicio 3
+      let centerContent = document.createElement('div');
+      centerContent.className = 'center-content';
+      mainContent.appendChild(centerContent);
+
+      //Exercicio 4
+      let text = document.createElement('p');
+      text.innerHTML = 'Texto na Tag p.';
+      mainContent.appendChild(text);
       
     </script>
   </body>
