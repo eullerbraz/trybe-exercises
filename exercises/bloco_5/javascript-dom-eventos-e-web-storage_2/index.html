@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Exercício 5.2</title>
+    <style>
+      div {
+        border-color: black;
+        border-style: solid;
+      }
+
+      .title {
+        text-align: center;
+      }
+
+      .main-content {
+        background-color: yellow;
+      }
+
+      .main-content .center-content {
+        background-color: red;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .main-content .center-content p {
+        font-style: italic;
+      }
+
+      .main-content .left-content {
+        background-color: green;
+        width: 60%;
+        margin-left: 0;
+        margin-right: auto;
+      }
+
+      .main-content .left-content .small-image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 100%;
+      }
+
+      .main-content .right-content {
+        background-color: blue;
+        width: 60%;
+        margin-left: auto;
+        margin-right: 0;
+      }
+
+      .main-content .description {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      // Parte 1
+
+      //Exercicio 1
+      let title = document.createElement('h1');
+      title.innerHTML = 'Exercício 5.2 - JavaScript DOM';
+      document.body.appendChild(title);
+
+      //Exercicio 2
+      let mainContent = document.createElement('div');
+      mainContent.className = 'main-content';
+      document.body.appendChild(mainContent);
+
+      //Exercicio 3
+      let centerContent = document.createElement('div');
+      centerContent.className = 'center-content';
+      mainContent.appendChild(centerContent);
+
+      //Exercicio 4
+      let text = document.createElement('p');
+      text.innerHTML = 'Texto na Tag p.';
+      mainContent.appendChild(text);
+
+      //Exercicio 5
+      let leftContent = document.createElement('div');
+      leftContent.className = 'left-content';
+      mainContent.appendChild(leftContent);
+
+      //Exercicio 6
+      let rightContent = document.createElement('div');
+      rightContent.className = 'right-content';
+      mainContent.appendChild(rightContent);
+
+      //Exercicio 7
+      let image = document.createElement('img');
+      image.src = 'https://picsum.photos/200';
+      image.className = 'small-image';
+      leftContent.appendChild(image);
+
+      //Exercicio 8
+      let list = document.createElement('ul');
+      let objectNumbers = {
+          1: 'Um',
+          2: 'Dois',
+          3: 'Três',
+          4: 'Quatro',
+          5: 'Cinco',
+          6: 'Seis',
+          7: 'Sete',
+          8: 'Oito',
+          9: 'Nove',
+          10: 'Dez',
+    }
+      
+      for (let key in objectNumbers) {
+          let listItem = document.createElement('li');
+          listItem.innerHTML = objectNumbers[key];
+          list.appendChild(listItem);
+      }
+      rightContent.appendChild(list);
+
+      //Exercicio 9
+      for (let index = 1; index <= 3; index += 1) {
+          let h3 = document.createElement('h3');
+          mainContent.appendChild(h3);
+      }
+
+      //Parte 2
+
+      //Exercicio 1
+      title.className = 'title';
+
+      //Exercicio 2
+      let elementsh3 = document.getElementsByTagName('h3');
+      for (let elementh3 of elementsh3) {
+        elementh3.className = 'description';
+      }
+
+      //Exercicio 3
+      mainContent.removeChild(leftContent);
+
+      //Exercicio 4
+      rightContent.style.marginRight = 'auto';
+
+      //Exercicio 5
+      centerContent.parentElement.style.backgroundColor = 'green';
+
+      //Exercicio 6
+      document.querySelector('ul').lastElementChild.remove();
+      document.querySelector('ul').lastElementChild.remove();
+    </script>
+  </body>
+</html>
