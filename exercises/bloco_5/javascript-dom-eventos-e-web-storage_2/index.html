@@ -80,14 +80,22 @@
       mainContent.appendChild(text);
 
       //Exercicio 5
-      let letContent = document.createElement('div');
-      letContent.className = 'left-content';
-      mainContent.appendChild(letContent);
+      let leftContent = document.createElement('div');
+      leftContent.className = 'left-content';
+      mainContent.appendChild(leftContent);
 
       //Exercicio 6
       let rightContent = document.createElement('div');
       rightContent.className = 'right-content';
       mainContent.appendChild(rightContent);
+
+      //Exercicio 7
+      let image = document.createElement('img');
+      image.src = 'https://picsum.photos/200';
+      image.className = 'small-image';
+      leftContent.appendChild(image);
+
+      //Exercicio 8
       
     </script>
   </body>
