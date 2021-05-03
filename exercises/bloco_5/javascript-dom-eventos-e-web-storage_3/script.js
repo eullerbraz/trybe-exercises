@@ -90,4 +90,20 @@ function buttonGenerate(buttonName) {
 buttonGenerate("Feriados");
 
 //Exercicio 3
+function holidayButton() {
+    let btnHoliday = document.getElementById('btn-holiday');
+    let holidays = document.getElementsByClassName('holiday');
+    let color = 'green';
+    let defaultColor = "rgb(238,238,238)";
 
+    btnHoliday.addEventListener('click', function(){
+        for (let index = 0; index < holidays.length; index += 1) {
+            if (holidays[index].style.backgroundColor === color) {
+                holidays[index].style.backgroundColor = defaultColor;
+            } else {
+                holidays[index].style.backgroundColor = color;
+            }
+        }
+    })
+}
+holidayButton();
