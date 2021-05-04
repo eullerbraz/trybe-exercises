@@ -158,3 +158,12 @@ function dayMouseOut() {
 
 dayMouseOut();
 dayMouseOver();
+
+//Exercicio 7
+function tasks(taskName) {
+  let divTaks = document.querySelector('.my-tasks');
+  let spanTask = document.createElement('span');
+  spanTask.innerHTML = taskName;
+  divTaks.appendChild(spanTask);
+}
+tasks('Cozinhar');
