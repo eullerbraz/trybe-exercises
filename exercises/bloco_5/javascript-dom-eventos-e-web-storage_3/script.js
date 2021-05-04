@@ -80,14 +80,14 @@ function calendarDays() {
 calendarDays();
 
 //Exercicio 2
-function buttonGenerate(buttonName) {
+function buttonGenerateHoliday(buttonName) {
   let button = document.createElement("button");
   let divbtn = document.querySelector(".buttons-container");
   button.id = "btn-holiday";
   button.innerHTML = buttonName;
   divbtn.appendChild(button);
 }
-buttonGenerate("Feriados");
+buttonGenerateHoliday("Feriados");
 
 //Exercicio 3
 function holidayButton() {
@@ -107,3 +107,13 @@ function holidayButton() {
     })
 }
 holidayButton();
+
+//Exercicio 4
+function buttonGenerateFriday (buttonName) {
+  let button = document.createElement('button');
+  let divbtn = document.querySelector('.buttons-container');
+  button.id = 'btn-friday';
+  button.innerHTML = buttonName;
+  divbtn.appendChild(button);
+}
+buttonGenerateFriday('Sexta-Feira');
