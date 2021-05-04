@@ -212,3 +212,30 @@ function dayColor() {
 dayColor();
 
 //Bonus
+function addTask() {
+  let button = document.getElementById('btn-add');
+  let input = document.getElementById('task-input');
+  let list = document.querySelector('.task-list');
+
+  button.addEventListener('click', function() {
+    if (input.value.length > 0) {
+      let newTaskItem = document.createElement('li');
+      newTaskItem.innerHTML = input.value;
+      list.appendChild(newTaskItem);
+      input.value = '';
+    } else {
+      alert('Adicione ao menos um caractere');
+    }
+  })
+
+  input.addEventListener('keyup', function(event) {
+    if (event.key === 'Enter' && input.value.length > 0) {
+      let newTaskItem = document.createElement('li');
+      newTaskItem.innerHTML = input.value;
+      list.appendChild(newTaskItem);
+      input.value = '';
+    }
+  })
+}
+
+addTask();
