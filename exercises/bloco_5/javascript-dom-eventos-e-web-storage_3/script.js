@@ -177,3 +177,17 @@ function subtitleColor(color) {
   divTaks.appendChild(divSub);
 }
 subtitleColor('blue');
+
+//Exercicio 9
+function selectedTasks() {
+  let divSub = document.querySelector('.task');
+  divSub.addEventListener('click', function(event) {
+    if (event.target.className === 'task') {
+      event.target.className = 'task selected';
+    } else {
+      event.target.className = 'task';      
+    }
+  })
+}
+selectedTasks();
+
