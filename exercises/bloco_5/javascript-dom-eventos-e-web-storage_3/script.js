@@ -91,29 +91,48 @@ buttonGenerateHoliday("Feriados");
 
 //Exercicio 3
 function holidayButton() {
-    let btnHoliday = document.getElementById('btn-holiday');
-    let holidays = document.getElementsByClassName('holiday');
-    let color = 'green';
-    let defaultColor = "rgb(238,238,238)";
+  let btnHoliday = document.getElementById("btn-holiday");
+  let holidays = document.getElementsByClassName("holiday");
+  let color = "green";
+  let defaultColor = "rgb(238,238,238)";
 
-    btnHoliday.addEventListener('click', function(){
-        for (let index = 0; index < holidays.length; index += 1) {
-            if (holidays[index].style.backgroundColor === color) {
-                holidays[index].style.backgroundColor = defaultColor;
-            } else {
-                holidays[index].style.backgroundColor = color;
-            }
-        }
-    })
+  btnHoliday.addEventListener("click", function () {
+    for (let index = 0; index < holidays.length; index += 1) {
+      if (holidays[index].style.backgroundColor === color) {
+        holidays[index].style.backgroundColor = defaultColor;
+      } else {
+        holidays[index].style.backgroundColor = color;
+      }
+    }
+  });
 }
 holidayButton();
 
 //Exercicio 4
-function buttonGenerateFriday (buttonName) {
-  let button = document.createElement('button');
-  let divbtn = document.querySelector('.buttons-container');
-  button.id = 'btn-friday';
+function buttonGenerateFriday(buttonName) {
+  let button = document.createElement("button");
+  let divbtn = document.querySelector(".buttons-container");
+  button.id = "btn-friday";
   button.innerHTML = buttonName;
   divbtn.appendChild(button);
 }
-buttonGenerateFriday('Sexta-Feira');
+buttonGenerateFriday("Sexta-Feira");
+
+//Exercicio 5
+function fridayButton() {
+  let btnFriday = document.getElementById("btn-friday");
+  let textFriday = "SEXTOU!!!";
+  let daysFriday = [4, 11, 18, 25];
+  let fridays = document.getElementsByClassName("fryday");
+
+  btnFriday.addEventListener("click", function () {
+    for (let index = 0; index < fridays.length; index += 1) {
+      if (fridays[index].innerHTML === textFriday) {
+        fridays[index].innerHTML = daysFriday[index];
+      } else {
+        fridays[index].innerHTML = textFriday;
+      }
+    }
+  });
+}
+fridayButton();
