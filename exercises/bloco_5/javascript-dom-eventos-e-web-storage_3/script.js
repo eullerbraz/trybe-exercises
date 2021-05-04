@@ -161,9 +161,19 @@ dayMouseOver();
 
 //Exercicio 7
 function tasks(taskName) {
-  let divTaks = document.querySelector('.my-tasks');
+  let divTasks = document.querySelector('.my-tasks');
   let spanTask = document.createElement('span');
   spanTask.innerHTML = taskName;
-  divTaks.appendChild(spanTask);
+  divTasks.appendChild(spanTask);
 }
 tasks('Cozinhar');
+
+//Exercicio 8
+function subtitleColor(color) {
+  let divTaks = document.querySelector('.my-tasks');
+  let divSub = document.createElement('div');
+  divSub.className = 'task';
+  divSub.style.backgroundColor = color;
+  divTaks.appendChild(divSub);
+}
+subtitleColor('blue');
