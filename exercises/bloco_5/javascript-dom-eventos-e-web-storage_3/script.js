@@ -136,3 +136,25 @@ function fridayButton() {
   });
 }
 fridayButton();
+
+//Exercicio 6
+function dayMouseOver() {
+  let daysUl = document.querySelector('#days');
+
+  daysUl.addEventListener('mouseover', function(event) {
+    event.target.style.fontSize = '30px';
+    event.target.style.fontWeight = '600';
+  })
+}
+
+function dayMouseOut() {
+  let daysUl = document.querySelector('#days');
+
+  daysUl.addEventListener('mouseout', function(event) {
+    event.target.style.fontSize = '20px';
+    event.target.style.fontWeight = '200';
+  })
+}
+
+dayMouseOut();
+dayMouseOver();
