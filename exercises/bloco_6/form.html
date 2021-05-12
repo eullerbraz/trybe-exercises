@@ -9,91 +9,118 @@
   </head>
   <body>
     <form action="" method="get">
-      <fieldset>
-        <label for="name-text"
-          >Nome:
-          <input
-            type="text"
-            id="name-text"
-            name="name"
-            maxlength="40"
-            required
-          />
-        </label>
-        <label for="email-text"
-          >Email:
-          <input
-            type="text"
-            id="email-text"
-            name="email"
-            maxlength="50"
-            required
-          />
-        </label>
-        <label for="cpf-text"
-          >CPF:
-          <input type="text" id="cpf-text" name="cpf" maxlength="11" required />
-        </label>
-        <label for="address-text"
-          >Endereço:
-          <input
-            type="text"
-            id="address-text"
-            name="address"
-            maxlength="200"
-            required
-          />
-        </label>
-        <label for="states-select"
-          >Estado:
-          <select name="state" id="state-select" required></select>
-        </label>
-        <label for="type"
-          >Tipo de Imóvel:
-          <label for="house">
-            <input type="radio" name="type" id="house" checked />Casa
-          </label>
-          <label for="apartment">
-            <input type="radio" name="type" id="apartment" />Casa
-          </label>
-        </label>
-      </fieldset>
-      <fieldset>
-        <label for="abstract-text"
-          >Resumo Curriculo:
-          <textarea
-            name="abstract"
-            id="abstract-text"
-            cols="30"
-            rows="10"
-            maxlength="1000"
-            required
-          ></textarea>
-        </label>
-        Cargo:
-        <label for="ocupation-text">
-          <input
-            type="text"
-            name="ocupation"
-            id="ocupation-text"
-            maxlength="40"
-            required
-          /> </label
-        >Descrição:
-        <label for="description-text">
-          <input
-            type="text"
-            name="description"
-            id="description-text"
-            maxlength="500"
-            required
-          />
-        </label>
-        <label for="date-text">
-          Data de Ínicio:
-          <input type="text" name="date" id="date-text" required />
-        </label>
-      </fieldset>
+      <div class="form-row">
+        <fieldset>
+          <div class="line-content">
+            <label for="name-text"
+              >Nome:
+              <input
+                type="text"
+                id="name-text"
+                name="name"
+                maxlength="40"
+                required
+              />
+            </label>
+          </div>
+          <div class="line-content">
+            <label for="email-text"
+              >Email:
+              <input
+                type="text"
+                id="email-text"
+                name="email"
+                maxlength="50"
+                required
+              />
+            </label>
+          </div>
+          <div class="line-content">
+            <label for="cpf-text"
+              >CPF:
+              <input
+                type="text"
+                id="cpf-text"
+                name="cpf"
+                maxlength="11"
+                required
+              />
+            </label>
+          </div>
+          <div class="line-content">
+            <label for="address-text"
+              >Endereço:
+              <input
+                type="text"
+                id="address-text"
+                name="address"
+                maxlength="200"
+                required
+              />
+            </label>
+            <label for="state-select"
+              >Estado:
+              <select name="state" id="state-select" required></select>
+            </label>
+            <label for="type"
+              >Tipo de Imóvel:
+              <label for="house">
+                <input type="radio" name="type" id="house" checked />Casa
+              </label>
+              <label for="apartment">
+                <input type="radio" name="type" id="apartment" />Apartamento
+              </label>
+            </label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <div class="line-content">
+            <label for="abstract-text"
+              >Resumo Curriculo:
+              <textarea
+                name="abstract"
+                id="abstract-text"
+                cols="30"
+                rows="10"
+                maxlength="1000"
+                required
+              ></textarea>
+            </label>
+          </div>
+          <div class="line-content">
+            <label for="ocupation-text"
+              >Cargo:
+              <input
+                type="text"
+                name="ocupation"
+                id="ocupation-text"
+                maxlength="40"
+                required
+              />
+            </label>
+          </div>
+          <div class="line-content">
+            <label for="description-text">
+              Descrição:
+              <input
+                type="text"
+                name="description"
+                id="description-text"
+                maxlength="500"
+                requiredI
+              />
+            </label>
+          </div>
+          <div class="line-content">
+            <label for="date-text">
+              Data de Ínicio:
+              <input type="text" name="date" id="date-text" required />
+            </label>
+          </div>
+        </fieldset>
+        <button class="submit-button" type="submit">Enviar</button>
+        <button class="clear-button" type="reset">Limpar</button>
+      </div>
     </form>
 
     <script src="script.js"></script>
