@@ -1,11 +1,15 @@
 body {
-
+    margin: 20px;
 }
 h1 {
-
+    font-size: 26px;
 }
 h2 {
+    font-size: 22px;
+}
 
+p {
+    font-size: 18px;
 }
 
 img {
@@ -13,5 +17,70 @@ img {
 }
 
 figure {
-    margin: 0;
+    margin: 10;
+}
+
+@media screen and (min-width: 700px) {
+    body {
+        background-color: lightgray;
+        margin: 30px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+    h2 {
+        font-size: 26px;
+    }
+    
+    p {
+        font-size: 16px;
+    }
+    
+    img {
+        max-width: 100%;
+    }
+    
+    figure {
+        margin: 10;
+        max-width: 30%;
+    }
+
+    .grid {
+        display: flex;
+        flex-flow: row wrap;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    body {
+        background-color: lightblue;
+        margin: 40px;
+        max-width: 1100;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+    h2 {
+        font-size: 30px;
+    }
+    
+    p {
+        font-size: 14px;
+    }
+    
+    img {
+        max-width: 100%;
+    }
+    
+    figure {
+        margin: 10;
+        max-width: 30%;
+    }
+
+    .grid {
+        display: flex;
+        flex-flow: row wrap;
+    }
 }
