@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<body>
+  <div>
+    <span id ="textCount">0</span>
+  </div>
+  <button id="button">Clique!</button>
+</body>
+<script>
+  let clickCount = 0;
+  const textToDisplay = document.getElementById("textCount");
+  const button = document.getElementById('button');
+
+  button.addEventListener("click", () => textToDisplay.innerHTML = clickCount += 1)
+</script>
+</html>
