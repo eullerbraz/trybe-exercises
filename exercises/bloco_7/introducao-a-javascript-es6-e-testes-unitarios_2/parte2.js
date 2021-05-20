@@ -67,6 +67,38 @@ const verifyPair = (obj, key, value) => {
   }
   return exist;
 }
-
 console.log(verifyPair(lesson3, 'turno', 'noite'));
 console.log(verifyPair(lesson3, 'materia', 'Maria Clara'));
+
+//Exercicio Bonus 1
+const getNumberOfStudentsMath = (obj) => {
+  let total = 0;
+  const lessons = Object.keys(obj);
+  for (let lesson of lessons) {
+    if (obj[lesson].materia === 'Matemática') {
+      total += obj[lesson].numeroEstudantes;
+    }
+  }
+  return total;
+}
+console.log(getNumberOfStudentsMath(allLessons));
+
+//Exercicio Bonus 2
+const createReport = (obj, teacher) => {
+  const report = {};
+  report.professor = teacher;
+  let students = 0;
+  const subjects = [];
+  const lessons = Object.keys(obj);
+  for (let lesson of lessons) {
+    if (obj[lesson].professor === teacher) {
+      students += obj[lesson].numeroEstudantes;
+      subjects.push(obj[lesson].materia);
+    }
+  }
+  report.aulas = subjects;
+  report.estudantes = students;
+  return report;
+}
+
+console.log(createReport(allLessons, 'Maria Clara'))
