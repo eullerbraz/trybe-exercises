@@ -169,3 +169,11 @@ function everyoneWasBornOnSecXX() {
 assert.strictEqual(everyoneWasBornOnSecXX(), expectedResult5);
 
 //Exercicio 6
+const expectedResult6 = true;
+
+function someBookWasReleaseOnThe80s() {
+  return books.some((book) => book.releaseYear < 1990 && book.releaseYear >= 1980);
+}
+
+assert.strictEqual(someBookWasReleaseOnThe80s(), expectedResult6);
+
