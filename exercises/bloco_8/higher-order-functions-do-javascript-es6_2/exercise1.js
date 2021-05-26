@@ -64,7 +64,7 @@ const books = [
 ];
 
 // Adicione o código do exercício aqui:
-
+/* 
 //Exercicio 1
 function authorBornIn1947() {
   const bookWithauthorBornIn1947 = books.find((book) => book.author.birthYear === 1947);
@@ -177,3 +177,15 @@ function someBookWasReleaseOnThe80s() {
 
 assert.strictEqual(someBookWasReleaseOnThe80s(), expectedResult6);
 
+//Exercicio 7 */
+const expectedResult7 = false;
+
+function authorUnique() {
+  return !books.some((book) => {
+    return books.some((bookSome) => {
+      return (book.author.birthYear === bookSome.author.birthYear) && (book.author.name !== bookSome.author.name);
+    })
+  })
+}
+
+assert.strictEqual(authorUnique(), expectedResult7);
