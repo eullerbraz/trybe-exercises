@@ -209,23 +209,33 @@ function fantasyOrScienceFictionAuthors() {
 assert.deepStrictEqual(fantasyOrScienceFictionAuthors(), expectedResult5);
 
 //Exercicio 6
-const expectedResult = [
+const expectedResult6 = [
   'O Senhor dos Anéis',
   'Fundação',
   'O Chamado de Cthulhu',
 ];
 
 function oldBooks() {
-  // escreva seu código aqui
+  const booksOld = books.filter((book) => {
+    const actualYear = 2021;
+    const bookAge = actualYear - book.releaseYear;
+    return bookAge > 60;
+  })
+  return booksOld.map((book) => book.name);
 }
 
-assert.deepStrictEqual(oldBooks(), expectedResult);
+assert.deepStrictEqual(oldBooks(), expectedResult6);
 
 //Exercicio 7
-const expectedResult = 'O Senhor dos Anéis';
+const expectedResult7 = 'O Senhor dos Anéis';
 
 function authorWith3DotsOnName() {
-  // escreva seu código aqui
+  const bookWithauthorWith3Initials =  books.find((book) => {
+    const namesOfAuthor =  book.author.name.split(' ');
+    const initials = namesOfAuthor.filter((word) => word.endsWith('.'));
+    return initials.length === 3;
+  });
+  return bookWithauthorWith3Initials.name;
 }
 
-assert.deepStrictEqual(authorWith3DotsOnName(), expectedResult);
+assert.deepStrictEqual(authorWith3DotsOnName(), expectedResult7);
