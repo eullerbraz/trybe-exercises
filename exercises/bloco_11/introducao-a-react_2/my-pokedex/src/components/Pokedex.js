@@ -10,7 +10,7 @@ class Pokedex extends React.Component {
       <section className='pokedex'>
         <h1>Pokédex</h1>
         {
-          pokemons.map((pokemon) => <Pokemon pokeInfo={pokemon}/>)
+          pokemons.map((pokemon) => <Pokemon key={pokemon.id} pokeInfo={pokemon}/>)
         }
       </section>
     );
