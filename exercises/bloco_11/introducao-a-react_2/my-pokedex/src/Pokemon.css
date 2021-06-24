@@ -1,0 +1,15 @@
+.pokemon {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 40%;
+  margin: 10px;
+}
+
+.pokemon .infos {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
