@@ -1,0 +1,440 @@
+use('class');
+
+db.movies.drop();
+
+db.movies.insertMany([
+  {
+    title: "Batman",
+    category: [
+      "action",
+      "adventure"
+    ],
+    imdbRating: 7.7,
+    budget: 35
+  },
+  {
+    title: "Godzilla",
+    category: [
+      "action",
+      "adventure",
+      "sci-fi"
+    ],
+    imdbRating: 6.6,
+    budget: 10
+  },
+  {
+    title: "Home Alone",
+    category: [
+      "family",
+      "comedy"
+    ],
+    imdbRating: 7.4
+  }
+]);
+
+db.movies.find();
+
+// 1
+use('class');
+
+db.movies.find(
+  {
+    category: {
+      $all: ['action', 'adventure'],
+    },
+  },
+);
+
+db.movies.find();
+
+// 2
+use('class');
+
+db.movies.find(
+  {
+    category: {
+      $all: ['action'],
+    },
+    imdbRating: {
+      $gt: 7,
+    }
+  },
+);
+
+db.movies.find();
+
+// 3
+use('class');
+
+db.movies.updateOne(
+  {
+    title: 'Batman',
+  },
+  {
+    $push: {
+      ratings: {
+        $each: [85, 100, 102, 105],
+      },
+    },
+  },
+);
+
+db.movies.find();
+
+// 4
+use('class');
+
+db.movies.updateOne(
+  {
+    title: 'Godzilla',
+  },
+  {
+    $push: {
+      ratings: {
+        $each: [78, 52, 95, 102],
+      },
+    },
+  },
+);
+
+db.movies.find();
+
+// 5
+use('class');
+
+db.movies.updateOne(
+  {
+    title: 'Home Alone',
+  },
+  {
+    $push: {
+      ratings: {
+        $each: [200, 99, 65],
+      },
+    },
+  },
+);
+
+db.movies.find();
+
+// 6
+use('class');
+
+db.movies.find(
+  {
+    ratings: {
+      $elemMatch: {
+        $gt: 103,
+      },
+    },
+  },
+  {
+    title: true,
+    ratings: true,
+    _id: false,
+  }
+);
+
+db.movies.find();
+
+// 7
+use('class');
+
+db.movies.find(
+  {
+    ratings: {
+      $elemMatch: {
+        $gte: 100,
+        $lte: 105
+      },
+    },
+  },
+  {
+    title: true,
+    ratings: true,
+    _id: false,
+  }
+);
+
+db.movies.find();
+
+// 8
+use('class');
+
+db.movies.find(
+  {
+    ratings: {
+      $elemMatch: {
+        $gte: 64,
+        $lte: 105,
+        $mod: [9,0],
+      },
+    },
+  },
+  {
+    title: true,
+    ratings: true,
+    _id: false,
+  }
+);
+
+db.movies.find();
+
+// 9
+use('class');
+
+db.movies.find(
+  {
+    category: {
+      $all: ['adventure'],
+    },
+    ratings: {
+      $elemMatch: {
+        $gt: 103,
+      },
+    },
+  },
+  {
+    title: true,
+    ratings: true,
+    category: true,
+    _id: false,
+  }
+);
+
+db.movies.find();
+
+// 10
+use('class');
+
+db.movies.find(
+  {
+    category: {
+      $size: 2,
+    },
+  },
+  {
+    title: true,
+    _id: false,
+  }
+);
+
+db.movies.find();
+
+// 11
+use('class');
+
+db.movies.find(
+  {
+    ratings: {
+      $size: 4,
+    },
+  },
+  {
+    title: true,
+    _id: false,
+  }
+);
+
+db.movies.find();
+
+// 12
+use('class');
+
+db.movies.find(
+  {
+    budget: {
+      $mod: [5, 0],
+    },
+    category: {
+      $size: 2,
+    },
+  },
+);
+
+db.movies.find();
+
+// 13
+use('class');
+
+db.movies.find(
+  {
+    $or: [
+      {
+        category: {
+          $all: ['sci-fi'],
+        },
+      },
+      {
+        ratings: {
+          $elemMatch: {
+            $gt: 199,
+          },
+        },
+      },
+    ],
+  },
+  {
+    title: true,
+    ratings: true,
+    category: true,
+    _id: false,
+  }
+);
+
+db.movies.find();
+
+// 14
+use('class');
+
+db.movies.find(
+  {
+    $and: [
+      {
+        ratings: {
+          $size: 4,
+        },
+      },
+      {
+        category: {
+          $elemMatch: {
+            $in: ['adventure', 'family'],
+          },
+        },
+      },
+      {
+        imdbRating: {
+          $not: {
+            $lt: 7,
+          },
+        },
+      },
+    ],
+  },
+);
+
+db.movies.find();
+
+// 15
+use('class');
+
+db.movies.updateOne(
+  {
+    title: 'Batman',
+  },
+  {
+    $set: {
+      description: 'The Dark Knight of Gotham City begins his war on crime with his first major enemy being Jack Napier, a criminal who becomes the clownishly homicidal Joker.'
+    }
+  }
+);
+
+db.movies.find();
+
+// 16
+use('class');
+
+db.movies.updateOne(
+  {
+    title: 'Godzilla',
+  },
+  {
+    $set: {
+      description: 'The world is beset by the appearance of monstrous creatures, but one of them may be the only one who can save humanity.'
+    }
+  }
+);
+
+db.movies.find();
+
+// 17
+use('class');
+
+db.movies.updateOne(
+  {
+    title: 'Home Alone',
+  },
+  {
+    $set: {
+      description: 'An eight-year-old troublemaker must protect his house from a pair of burglars when he is accidentally left home alone by his family during Christmas vacation.'
+    }
+  }
+);
+
+db.movies.find();
+
+// 18
+use('class');
+
+db.movies.find(
+  {
+    description: {
+      $regex: /^The/
+    }
+  }
+);
+
+db.movies.find();
+
+// 19
+use('class');
+
+db.movies.find(
+  {
+    description: {
+      $regex: /humanity.$/
+    }
+  }
+);
+
+db.movies.find();
+
+// 20
+use('class');
+
+db.movies.createIndex(
+  {
+    description: 'text',
+  },
+);
+
+db.movies.find();
+
+// 21
+use('class');
+
+db.movies.find(
+  {
+    $text: {
+      $search: 'vacation'
+    },
+  },
+);
+
+db.movies.find();
+
+// 22
+use('class');
+
+db.movies.find(
+  {
+    $text: {
+      $search: 'monstrous criminal'
+    },
+  },
+);
+
+db.movies.find();
+
+// 23
+use('class');
+
+db.movies.find(
+  {
+    $text: {
+      $search: '\'when he is accidentally\''
+    },
+  },
+);
+
+db.movies.find();
