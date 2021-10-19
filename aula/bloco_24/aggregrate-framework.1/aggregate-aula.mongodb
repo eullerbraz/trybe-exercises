@@ -1,0 +1,211 @@
+use("agg_example");
+
+db.transactions.insertMany([
+  { value: 5900, from: "Dave America", to: "Ned Flanders", bank: 'International' },
+  { value: 1000, from: "Mark Zuck", to: "Edna Krabappel", bank: 'FloridaBank' },
+  { value: 209, from: "Lisa Simpson", to: "Dave America", bank: 'bankOfAmerica' },
+  { value: 10800, from: "Arnold Schuz", to: "Mark Zuck", bank: 'JPMorgan' },
+  { value: 850, from: "Barney Gumble", to: "Lisa Simpson", bank: 'Citigroup' },
+  { value: 76000, from: "Ned Flanders", to: "Edna Krabappel", bank: 'JPMorgan' },
+  { value: 1280, from: "Dave America", to: "Homer Simpson", bank: 'Citigroup' },
+  { value: 7000, from: "Arnold Schuz", to: "Ned Flanders", bank: 'International' },
+  { value: 59020, from: "Homer Simpson", to: "Lisa Simpson", bank: 'International' },
+  { value: 100, from: "Mark Zuck", to: "Barney Gumble", bank: 'FloridaBank' },
+]);
+
+// 1 limit
+use("agg_example");
+
+db.transactions.aggregate(
+  [
+    {
+      $match: {
+        from: "Dave America",
+      },
+    },
+  ],
+);
+
+// 2 limit
+use("agg_example");
+
+db.transactions.aggregate(
+  [
+    {
+      $match: {
+        $or: [
+          {
+            value: {
+              $gt: 700,
+              $lt: 6000,
+            },
+          },
+          {
+            to: {
+              $eq: "Lisa Simpson",
+            }
+          }
+        ],
+      },
+    },
+  ],
+);
+
+
+// 3 limit
+use("agg_example");
+
+db.transactions.aggregate(
+  [
+    {
+      $match: {
+        value: {
+          $gt: 1000,
+        },
+      },
+    },
+    {
+      $limit: 3,
+    },
+  ],
+);
+
+// 1 group
+use("agg_example");
+
+db.transactions.aggregate(
+  [
+    {
+      $group: {
+        _id: "$bank",
+      },
+    },
+  ],
+);
+
+// 2 group
+use("agg_example");
+
+db.transactions.aggregate(
+  [
+    {
+      $group: {
+        _id: "$bank",
+        total: {
+          $sum: "$value",
+        },
+        transactions: {
+          $sum: 1,
+        },
+      },
+    },
+  ],
+);
+
+// 3 group
+use("agg_example");
+
+db.transactions.aggregate(
+  [
+    {
+      $group: {
+        _id: "$bank",
+        total: {
+          $sum: "$value",
+        },
+      },
+    },
+  ],
+);
+
+// 4 group
+use("agg_example");
+
+db.transactions.aggregate(
+  [
+    {
+      $group: {
+        _id: "$bank",
+        total: {
+          $sum: "$value",
+        },
+      },
+    },
+    {
+      $match: {
+        total: {
+          $gt: 1000,
+        },
+      },
+    },
+  ],
+);
+
+// 1 lookup
+use("agg_example");
+
+db.clients.insertMany([
+  { name: "Dave America", State: "Florida" },
+  { name: "Ned Flanders", State: "Alasca" },
+  { name: "Mark Zuck", State: "Texas" },
+  { name: "Edna Krabappel", State: "Montana" },
+  { name: "Arnold Schuz", State: "California" },
+  { name: "Lisa Simpson", State: "Florida" },
+  { name: "Barney Gumble", State: "Texas" },
+  { name: "Homer Simpson", State: "Florida" },
+]);
+
+use("agg_example");
+
+db.clients.aggregate(
+  [
+    {
+      $lookup: {
+        from: "transactions",
+        localField: "name",
+        foreignField: "from",
+        as: "transactions",
+      },
+    },
+  ],
+);
+
+// 2 lookup
+use("agg_example");
+
+db.clients.aggregate(
+  [
+    {
+      $lookup: {
+        from: "transactions",
+        localField: "name",
+        foreignField: "to",
+        as: "transactions",
+      },
+    },
+    {
+      $limit: 4,
+    },
+  ],
+);
+
+// 3 lookup
+use("agg_example");
+
+db.clients.aggregate(
+  [
+    {
+      $match: {
+        State: "Florida",
+      },
+    },
+    {
+      $lookup: {
+        from: "transactions",
+        localField: "name",
+        foreignField: "to",
+        as: "transactions",
+      },
+    },
+  ],
+);
